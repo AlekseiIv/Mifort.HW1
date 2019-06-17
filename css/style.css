@@ -1,0 +1,257 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(to right bottom, #8A2BE2, #EE82EE);
+}
+
+p {
+	margin-bottom: 20px;
+	padding-left: 15%;
+	color: white;
+	font-size: 20px;
+	font-family: "Georgia", serif;
+}
+
+.inProcess {
+	color: #FFD700;
+}
+
+.divWithAfter .inProcess {
+	color: white;
+}
+
+.pending {
+	color: rgba(255,255,255,0.6);
+	/*opacity: 0.6;*/
+}
+
+.timelineBlock {
+	display: block;
+	width: 100%;
+	min-height: 100%;
+	padding-top: 10%;
+}
+
+/* для маленьких экранов */
+
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px) {
+
+.container:first-child {
+	display: none;
+}
+
+.timelineBlock .done::before {
+	content: "";
+	position: absolute;
+	background-image: url("../img/done.png");
+	background-size: cover;
+	width: 1em;
+	height: 1em;
+	left: 1.5em;
+}
+
+.timelineBlock .inProcess::before {
+	content: "";
+	position: absolute;
+	background-image: url("../img/inProcess.png");
+	background-size: cover;
+	vertical-align: middle;
+	width: 1em;
+	height: 1em;
+	left: 1.5em;
+	animation: spin 2s linear 0s infinite;
+}
+
+@keyframes spin{
+	from {transform:rotate(360deg);}
+    to {transform:rotate(0deg);}
+}
+
+.timelineBlock .pending::before {
+	content: "";
+	position: absolute;
+	background-image: url("../img/pending.png");
+	background-size: cover;
+	vertical-align: middle;
+	width: 1em;
+	height: 1em;
+	left: 1.5em;
+	opacity: 0.6;
+}
+
+.timelineBlock .done::after {
+	content: "";
+	position: absolute;
+	background-image: url("../img/circle.png"), url("../img/line.png");
+	background-size: 1.1em, 1.2em;
+	background-position: top center, 50% 100%;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+  	width: 1.1em;
+	height: 2.2em;
+  	right: 1em;
+}
+
+.timelineBlock .inProcess::after {
+	content: "";
+	position: absolute;
+	background-image: url("../img/circle.png"), url("../img/circleInProcess.png"), url("../img/linePending.png");;
+	background-size: 1.1em, 0.6em, 1.2em;
+	background-position: top center, center 15%, 50% 100%;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	width: 1.1em;
+	height: 2.2em;
+	right: 1em;
+}
+
+.timelineBlock .pending::after {
+	content: "";
+	position: absolute;
+	background-image: url("../img/circleDotted.png"), url("../img/linePending.png");
+	background-size: 1.1em, 1.2em;
+	background-position: top center, 50% 100%;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	width: 1.1em;
+	height: 2.2em;
+	right: 1em;
+	opacity: 1;
+}
+
+.timelineBlock .pending:last-child::after {
+	content: "";
+	position: absolute;
+	background-image: url("../img/circleDotted.png");
+	background-size: 1.1em;
+	background-position: top center;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	width: 1.1em;
+	height: 4.4em;
+	right: 1em;
+	opacity: 1;
+}
+
+}
+
+/* для экранов побольше */
+
+@media only screen 
+and (min-device-width: 812px)
+and (max-device-width: 1366px) {
+	.container:last-child {
+		display: none;
+	}
+
+.divWithAfter	p {
+		padding-left: 25%;
+	}
+
+	.divWithAfter .inProcess::before,
+	.timelineBlock .done::before {
+	content: "";
+	position: absolute;
+	background-image: url("../img/done.png");
+	background-size: cover;
+	width: 1em;
+	height: 1em;
+	left: 1.5em;
+}
+
+.divWithoutAfter .inProcess::before {
+	content: "";
+	position: absolute;
+	background-image: url("../img/inProcess.png");
+	background-size: cover;
+	vertical-align: middle;
+	width: 1em;
+	height: 1em;
+	left: 1.5em;
+	animation: spin 2s linear 0s infinite;
+}
+
+@keyframes spin{
+	from {transform:rotate(360deg);}
+    to {transform:rotate(0deg);}
+}
+
+.timelineBlock .pending::before {
+	content: "";
+	position: absolute;
+	background-image: url("../img/pending.png");
+	background-size: cover;
+	vertical-align: middle;
+	width: 1em;
+	height: 1em;
+	left: 1.5em;
+	opacity: 0.6;
+}
+
+.divWithAfter .inProcess::before,
+.divWithAfter .done::before,
+.divWithAfter .pending::before {
+	left: 4.5em;
+}
+
+
+
+.divWithAfter .done::after {
+	content: "";
+	position: absolute;
+	background-image: url("../img/circle.png"), url("../img/line.png");
+	background-size: 1.1em, 1.2em;
+	background-position: top center, 50% 100%;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+  	width: 1.1em;
+	height: 2.2em;
+  	right: 3em;
+}
+
+.divWithAfter .inProcess::after {
+	content: "";
+	position: absolute;
+	background-image: url("../img/circle.png"), url("../img/circleInProcess.png"), url("../img/linePending.png");;
+	background-size: 1.1em, 0.7em, 1.2em;
+	background-position: top center, center 13%, 50% 100%;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	width: 1.1em;
+	height: 2.2em;
+	right: 3em;
+}
+
+.divWithAfter .pending::after {
+	content: "";
+	position: absolute;
+	background-image: url("../img/circleDotted.png"), url("../img/linePending.png");
+	background-size: 1.1em, 1.2em;
+	background-position: top center, 50% 100%;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	width: 1.1em;
+	height: 2.2em;
+	right: 3em;
+}
+
+.divWithAfter .pending:last-child::after {
+	content: "";
+	position: absolute;
+	background-image: url("../img/circleDotted.png");
+	background-size: 1.1em;
+	background-position: top center;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	width: 1.1em;
+	height: 2.2em;
+	right: 3em;
+}
+}
